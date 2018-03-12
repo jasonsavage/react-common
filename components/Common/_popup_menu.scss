@@ -1,0 +1,19 @@
+// scss-lint:disable Shorthand
+
+.popup-menu-wrapper {
+	position: absolute;
+	height: auto;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.popup-menu {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	border-width: 7px;
+	//border-image: url('../img/bg_popup_menu_s9.png') 7 7 7 7 fill;
+	border-style: solid;
+}

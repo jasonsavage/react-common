@@ -1,0 +1,15 @@
+//
+// List is a ul element with not default browser style
+//
+.list {
+	overflow: visible;
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+
+	&.horizontal {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+}

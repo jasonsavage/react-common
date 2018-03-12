@@ -1,0 +1,71 @@
+[class^='icon-'],
+[class*=' icon-'] {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	vertical-align: middle;
+	margin-top: 1px;
+}
+@mixin icon ($name, $width, $height, $image) {
+
+	.icon-#{$name} {
+		width: #{$width}px;
+		height: #{$height}px;
+		background: url('#{$image}') no-repeat center center;
+		@content;
+	}
+}
+@include icon('plus', 12, 12, '../img/icons/icon_plus.svg');
+@include icon('unlock', 18, 18, '../img/icons/icon_unlock.png');
+@include icon('lock', 18, 18, '../img/icons/icon_lock.png');
+@include icon('cube', 16, 18, '../img/icons/icon_cube.png');
+@include icon('levelup', 16, 18, '../img/icons/icon_arrow_up.png');
+@include icon('check', 27, 24, '../img/icons/icon_check.png') {
+	background-size: 100% auto;
+}
+@include icon('check-lime', 27, 24, '../img/icons/icon_check-lime.png') {
+	background-size: 100% auto;
+}
+@include icon('mail', 23, 15, '../img/icons/icon_mail.svg');
+@include icon('chat-bubble', 33, 29, '../img/icons/icon_chat.svg');
+@include icon('community', 40, 22, '../img/icons/icon_community.svg');
+@include icon('add-friend', 28, 23, '../img/icons/icon_add_friend.svg');
+@include icon('remove-friend', 28, 23, '../img/icons/icon_remove_friend.svg');
+@include icon('close', 16, 16, '../img/icons/icon_x.svg');
+@include icon('minimize', 16, 16, '../img/icons/icon_minimize.svg');
+@include icon('maximize', 16, 16, '../img/icons/icon_maximize.svg');
+@include icon('restore', 16, 16, '../img/icons/icon_restore.svg');
+@include icon('party-leader', 28, 26, '../img/icons/icon_party_leader.png');
+@include icon('spectator', 28, 26, '../img/icons/icon_spectator.svg');
+@include icon('person', 25, 25, '../img/icons/icon_person.png');
+@include icon('party-member', 34, 21, '../img/icons/party_icon.png') {
+	background-size: 100% auto;
+}
+@include icon('circle-check', 25, 25, '../img/icons/icon_circle-check.png');
+@include icon('nav-left-arrow', 15, 15, '../img/icons/nav_left_arrow.svg');
+@include icon('nav-right-arrow', 15, 15, '../img/icons/nav_right_arrow.svg');
+@include icon('leave-party', 20, 20, '../img/icons/icon_leave_party.png');
+@include icon('party-leader-star', 28, 28, '../img/icons/party_leader_icon.png');
+@include icon('spectator', 28, 28, '../img/icons/spectator_icon.png');
+@include icon('chat_off', 34, 34, '../img/icons/chat_off.png');
+@include icon('chat_on', 34, 34, '../img/icons/chat_on.png');
+@include icon('chat_off_discord', 34, 34, '../img_pc/chat_off_discord.png');
+@include icon('chat_on_discord', 34, 34, '../img_pc/chat_on_discord.png');
+@include icon('chat_mute_discord', 34, 34, '../img_pc/chat_mute_discord.png');
+@include icon('nvidia', 25, 25, '../img_pc/icon-nvidia.jpg') {
+	background-size: 100% auto;
+}
+@include icon('arrow-down-red', 12, 15, '../img/icons/icon_arrow_down_red.png') {
+	background-size: 100% auto;
+}
+@include icon('arrow-up-green', 12, 15, '../img/icons/icon_arrow_up_green.png') {
+	background-size: 100% auto;
+}
+@include icon('arrow-down', 10, 10, '../img/icons/icon_down_arrow_white.svg') { background-size: 100% auto; }
+@include icon('arrow-up', 10, 10, '../img/icons/icon_up_arrow_white.svg') { background-size: 100% auto; }
+@include icon('coin', 25, 25, '../img/icons/icon_coin.svg') { transform: translateY(-2px); }
+@include icon('gem', 25, 25, '../img/icons/icon_gem.svg') { transform: translateY(-4px); }
+@include icon('star-pink', 25, 25, '../img/icons/icon_star_pink.svg') {
+	transform: translateY(-3px);
+}

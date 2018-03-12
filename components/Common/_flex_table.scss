@@ -1,0 +1,88 @@
+// stylelint-disable declaration-block-no-redundant-longhand-properties
+
+.flex-table {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	width: 100%;
+
+	&.striped .flex-table-row {
+		background-color: rgba($white, 0.1);
+
+		&:nth-child(even) {
+			background-color: rgba($white, 0.2);
+		}
+	}
+
+	&.striped-columns .flex-table-row .flex-table-column {
+
+		&:nth-child(even) {
+			background-color: rgba($black, 0.2);
+		}
+	}
+
+	&.row-hover .flex-table-row {
+
+		&.active,
+		&:hover {
+			@include list-item-glow-active();
+		}
+
+		&.header:hover {
+			// override header row
+			@include animation('none');
+
+			background: inherit;
+		}
+	}
+
+	&.row-select .flex-table-row {
+		// stop row from shifting when it's selected
+		border: 1px solid transparent;
+
+		&.selected {
+			@include list-item-glow-selected();
+		}
+	}
+
+	.flex-table-row {
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.flex-table-column {
+		//@include rajdhani-medium();
+
+		font-size: 24px;
+		color: $white;
+		flex-grow: 0;
+		flex-shrink: 0;
+		position: relative;
+		line-height: 44px;
+		height: 44px;
+		vertical-align: middle;
+		padding: 0 20px;
+
+		&.label {
+			//@include rajdhani-semi();
+
+			font-size: 20px;
+			text-transform: uppercase;
+			color: $french-grey;
+		}
+	}
+
+	[class^='icon-'],
+	[class*=' icon-'] {
+		position: absolute;
+		left: -20px;
+		top: 50%;
+		width: 30px;
+		height: 30px;
+		background-size: 100%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+}
