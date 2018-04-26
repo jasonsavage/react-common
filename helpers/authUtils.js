@@ -1,5 +1,6 @@
 import _ from 'underscore';
 import ueFunctions from 'ueFunctions';
+import {FOUNDERS_APP_ID} from 'constants/Configuration';
 import {locId} from 'helpers/localeUtils';
 
 
@@ -69,4 +70,12 @@ export function validateEmail (email) {
 	}
 
 	return { isEmailValid: true, emailError: null };
+}
+
+export function hasFoundersPack (userData) {
+	if(userData && userData.app_ids && userData.app_ids.length) {
+		// find founders pack id
+		return (userData.app_ids.indexOf(FOUNDERS_APP_ID) !== -1);
+	}
+	return false;
 }

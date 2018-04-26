@@ -2,7 +2,7 @@
 // import modules
 import PropTypes from 'prop-types';
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import _ from 'underscore';
 import { FormattedMessage } from 'react-intl';
@@ -11,7 +11,7 @@ import { FormattedMessage } from 'react-intl';
  * FlexTable
  * @desc
  */
-class FlexTable extends Component {
+class FlexTable extends PureComponent {
 	render () {
 		const componentClass = classnames('flex-table', this.props.className, {
 			striped: this.props.striped,
@@ -27,7 +27,7 @@ class FlexTable extends Component {
 /**
  * <tr />
  */
-class Row extends Component {
+class Row extends PureComponent {
 	render () {
 		const otherProps = _.omit(this.props, 'children', 'className', 'header', 'intl');
 		return (
@@ -46,7 +46,7 @@ Row.propTypes = {
 /**
  * <td />
  */
-class Column extends Component {
+class Column extends PureComponent {
 	render () {
 		const otherProps = _.omit(this.props, 'children', 'className', 'content', 'icon', 'intl', 'intlId', 'intlValues');
 		let content = this.props.content || this.props.content === 0 ? this.props.content : this.props.children,

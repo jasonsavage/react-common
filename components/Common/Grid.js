@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React, {PureComponent} from 'react';
 import classnames from 'classnames';
 import immutable from 'immutable';
-import { noop } from 'helpers/bkpUtils';
 
 
 /**
@@ -24,6 +23,10 @@ class Grid extends PureComponent {
 
 	renderColumns (rowData, rowIndex) {
 		const { itemRenderer, itemClassName } = this.props;
+
+		if( !rowData || !rowData.size) {
+			return null;
+		}
 
 		return rowData.map((item, colIndex) => {
 
@@ -77,8 +80,8 @@ Grid.propTypes = {
 
 // prop defaults
 Grid.defaultProps = {
-	dataProvider: [],
-	itemRenderer: noop
+	dataProvider: new immutable.List(),
+	itemRenderer: (item) => item
 };
 
 //export module

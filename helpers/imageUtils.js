@@ -35,7 +35,6 @@ export function getProfileImagePath (obj, small = false) {
 		filename = DEFAULT_PROFILE_IMAGE;
 	}
 
-	//return small ? Path.img('kill_card_items', 'small', sanitizeFilename(filename)) : Path.img('kill_card_items', sanitizeFilename(filename));
-	return Path.img('kill_card_items', sanitizeFilename(filename));
+	return Path.assets(sanitizeFilename(filename));
 }
 

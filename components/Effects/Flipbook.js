@@ -23,6 +23,7 @@ class Flipbook extends PureComponent {
 	}
 
 	componentDidMount () {
+		this.isComponentMounted = true;
 		this.lastTimestamp = timestamp();
 		GameLoopApi.addListener(UPDATE, this.step);
 	}
@@ -39,6 +40,7 @@ class Flipbook extends PureComponent {
 	}
 
 	componentWillUnmount () {
+		this.isComponentMounted = false;
 		GameLoopApi.removeListener(UPDATE, this.step);
 	}
 
@@ -56,6 +58,8 @@ class Flipbook extends PureComponent {
 
 	// view event listeners
 	step () {
+		if(!this.isComponentMounted) { return; }
+
 		const {isVisible, loop, sheetColumns, sheetRows} = this.props;
 		const {gridIndex, frameDuration, isEnded} = this.state;
 		const now = timestamp();

@@ -29,23 +29,6 @@ export const SIZE_XSMALL = 'xsmall';
 class CommonButton extends Clickable {
 
 	// @override
-	handleHover (evt) {
-		super.handleHover();
-
-		const { onMouseEnter } = this.props;
-		if (onMouseEnter) {
-			onMouseEnter();
-		}
-	}
-
-	handleMouseLeave (evt) {
-		const { onMouseLeave } = this.props;
-		if (onMouseLeave) {
-			onMouseLeave();
-		}
-	}
-
-	// @override
 	handleClick (e) {
 		e.preventDefault();
 
@@ -53,8 +36,9 @@ class CommonButton extends Clickable {
 
 		if (this.props.disabled) {
 			return;
+		}
 
-		} else if (this.props.link) {
+		if (this.props.link) {
 			RouteApi.pushRoute(this.props.link);
 
 		} else {
@@ -100,7 +84,6 @@ CommonButton.propTypes = {
 	link: PropTypes.string,
 	onClick: PropTypes.func,
 	onMouseEnter: PropTypes.func,
-	onMouseLeave: PropTypes.func,
 	type: PropTypes.string
 };
 
@@ -108,7 +91,6 @@ CommonButton.propTypes = {
 CommonButton.defaultProps = {
 	type: 'button',
 	onMouseEnter: noop,
-	onMouseLeave: noop,
 	onClick: noop,
 };
 

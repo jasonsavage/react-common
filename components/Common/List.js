@@ -1,10 +1,9 @@
 // import modules
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
+import immutable from 'immutable';
 import React, {Component} from 'react';
 import _ from 'underscore';
 import classnames from 'classnames';
-import { noop } from 'helpers/bkpUtils';
 
 
 /**
@@ -17,13 +16,20 @@ class List extends Component {
 		const {dataProvider} = this.props;
 		return (!dataProvider) ||
 			(_.isArray(dataProvider) && !dataProvider.length) ||
-			(Immutable.List.isList(dataProvider) && !dataProvider.size);
+			(immutable.List.isList(dataProvider) && !dataProvider.size);
+	}
+
+	limitItems () {
+		const {limit, dataProvider} = this.props;
+		const listItems = dataProvider.size ? dataProvider : new immutable.List(dataProvider);
+		return (limit > 0) ? listItems.take(limit) : listItems;
 	}
 
 	renderListItems () {
-		let { dataProvider, itemRenderer, itemClassName, activeItem, onItemClick, onItemMouseEnter } = this.props;
+		let { itemRenderer, itemClassName, activeItem, onItemClick, onItemMouseEnter } = this.props;
+		const listItems = this.limitItems();
 
-		if (this.hasNoData()) {
+		if (!listItems.size) {
 			return (
 				<li className={ classnames('listitem empty', itemClassName) }>
 					{ itemRenderer(null) }
@@ -31,7 +37,7 @@ class List extends Component {
 			);
 		}
 
-		return dataProvider.map((item, index) => {
+		return listItems.map((item, index) => {
 			let itemClass = classnames('listitem', itemClassName, { active: activeItem && activeItem === item });
 			let otherProps = {};
 			if (onItemClick) {
@@ -54,8 +60,8 @@ class List extends Component {
 	}
 
 	render () {
-		let { className, horizontal } = this.props;
-		return <ul className={classnames('list', className, { horizontal })}>{this.renderListItems()}</ul>;
+		let { className, horizontal, striped } = this.props;
+		return <ul className={classnames('list', className, { horizontal, striped })}>{this.renderListItems()}</ul>;
 	}
 }
 
@@ -63,18 +69,20 @@ class List extends Component {
 List.propTypes = {
 	activeItem: PropTypes.object,
 	className: PropTypes.string,
-	dataProvider: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(Immutable.List)]),
+	dataProvider: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(immutable.List)]),
 	horizontal: PropTypes.bool,
 	itemClassName: PropTypes.string,
 	itemRenderer: PropTypes.func,
+	limit: PropTypes.number,
 	onItemClick: PropTypes.func,
-	onItemMouseEnter: PropTypes.func
+	onItemMouseEnter: PropTypes.func,
+	striped: PropTypes.bool
 };
 
 // prop defaults
 List.defaultProps = {
 	dataProvider: [],
-	itemRenderer: noop
+	itemRenderer: (item) => item
 };
 
 //export module

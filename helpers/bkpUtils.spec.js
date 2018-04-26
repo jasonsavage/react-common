@@ -474,9 +474,12 @@ describe('bkpUtils.js', function () {
 			expect(result.warn instanceof Function).toBeTruthy();
 			expect(result.info instanceof Function).toBeTruthy();
 			expect(result.off instanceof Function).toBeTruthy();
-			expect(console.log).toHaveBeenCalledWith('foobar.test1');
-			expect(console.warn).toHaveBeenCalledWith('foobar.test2');
-			expect(console.info).toHaveBeenCalledWith('foobar.test3');
+
+			if (process.env.REACT_APP_IS_INTERNAL_BUILD === 'true') {
+				expect(console.log).toHaveBeenCalledWith('foobar.test1');
+				expect(console.warn).toHaveBeenCalledWith('foobar.test2');
+				expect(console.info).toHaveBeenCalledWith('foobar.test3');
+			}
 		});
 		it('should be able to turn off a logger', () => {
 			//given

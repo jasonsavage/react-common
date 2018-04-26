@@ -10,9 +10,11 @@
 
 const path = require('path');
 const fs = require('fs');
+const {outputTemplate, getFiles} = require('./utils');
+
 
 // should match <Text />, locText(), and locId()
-const TAG_PATTERN = /(<Text[^\/>]+\/>|locText\([^\)]+\)|locId\([^\)]+\))/g;
+const TAG_PATTERN = /(<Text[^\/>]+\/>|locText\('[^')]+'\)|locId\('[^\']+'\))/g;
 
 const MSG_PATTERN = /msg="(.*)"/;
 const VAL_PATTERN = /locText\([\w,\s]+['"](.+)['"]\)/;
@@ -66,28 +68,11 @@ function execute (args) {
 	});
 
 	// build expected json format
-	let content = JSON.stringify({locale: 'en', currency: 'USD', content: localData}, null, '\t');
-	content = '/** GENERATED FILE **/\n/* eslint-disable quotes, max-len */\n\nmodule.exports = ' + content + ';\n';
+	const contents = JSON.stringify({locale: 'en', currency: 'USD', content: localData}, null, '\t');
+	fs.writeFileSync(destPath, outputTemplate('localedata', 'module.exports = ' + contents + ';') );
 
-	fs.writeFileSync(destPath, content);
 	console.log('finished!');
 	return 0;
-}
-
-function getFiles (dir, files, pattern) {
-	fs.readdirSync(dir).forEach(name => {
-		let dirPath = path.join(dir, name);
-		let stat = fs.statSync(dirPath);
-
-		if(stat.isDirectory()) {
-			getFiles(dirPath, files, pattern);
-		} else {
-			if(pattern.test(name)) {
-				files.push(dirPath);
-			}
-		}
-	});
-	return files;
 }
 
 function matchAndAddToLocalData(tag, pattern, localData) {

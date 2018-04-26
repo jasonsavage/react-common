@@ -376,6 +376,7 @@ export function logFunc (className) {
 	let stub = () => {};
 	stub.warn = noop;
 	stub.info = noop;
+	stub.off = () => stub;
 
 	// internal only
 	if (process.env.REACT_APP_IS_INTERNAL_BUILD !== 'true') {
@@ -401,7 +402,7 @@ export function logFunc (className) {
 	// add static methods
 	logger.warn = (methodName, msg, data) => { console.warn(getMessage(methodName, msg, data)); };
 	logger.info = (methodName, msg, data) => { console.info(getMessage(methodName, msg, data)); };
-	logger.off = () => { return stub; };
+	logger.off = () => stub;
 
 	return logger;
 }
