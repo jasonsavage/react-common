@@ -29,27 +29,35 @@
 		margin: 0;
 		height: 55px;
 		line-height: 55px;
-		padding: 10px;
+		padding: 10px 15px;
 		color: $white;
 		text-shadow: 4px 3px $black;
 		text-transform: uppercase;
 		background: -webkit-linear-gradient($turquoise, $brown);
 		background: linear-gradient($turquoise, $brown);
 		border-radius: 10px 10px 0 0;
+
+		h1 {
+			font-size: 28px;
+			line-height: 40px;
+		}
 	}
 
 	.panel-body {
-		margin: 0;
+		margin: 0 0 80px;
 		padding: 0;
 	}
 
 	.panel-footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
 		display: flex;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: flex-start;
 		background: -webkit-linear-gradient($turquoise, $brown);
 		background: linear-gradient($turquoise, $brown);
-		margin: 10px;
 		border-top: none;
 		padding: 10px;
 		border-radius: 0 0 5px 5px;

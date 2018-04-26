@@ -1,0 +1,336 @@
+// stylelint-disable rule-empty-line-before, single-line-declaration, declaration-no-important
+@mixin keyframes($animation-name) {
+	@-webkit-keyframes #{$animation-name} {
+		@content;
+	}
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
+@include keyframes(anima-fader) {
+	0% { opacity: 1; }
+	50% { opacity: 0.5; }
+	100% { opacity: 1; }
+}
+@include keyframes(anima-progress) {
+	from { left: -20px; }
+	to { left: 0; }
+}
+@include keyframes(anima-arrow-left) {
+	0% { left: 5px; opacity: 0; }
+	60% { left: 5px; opacity: 1; }
+
+	100% {
+		left: 25px;
+		opacity: 0;
+	}
+}
+@include keyframes(anima-arrow-right) {
+
+	0% {
+		right: 5px;
+		opacity: 0;
+	}
+
+	60% {
+		right: 5px;
+		opacity: 1;
+	}
+
+	100% {
+		right: 25px;
+		opacity: 0;
+	}
+}
+@include keyframes(fx-fade-out-in) {
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+@include keyframes(fx-fade-out-in-2) {
+
+	0% {
+		opacity: 0.8;
+	}
+
+	50% {
+		opacity: 0.2;
+	}
+
+	100% {
+		opacity: 0.8;
+	}
+}
+@include keyframes(fx-fade-out-in-75) {
+
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.75;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+@include keyframes(fx-fade-in-30) {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0.3;
+	}
+}
+@include keyframes(fx-fade-in-40) {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0.4;
+	}
+}
+@include keyframes(fx-fade-in-60) {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0.6;
+	}
+}
+@include keyframes(fx-fade-in-80) {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0.8;
+	}
+}
+@include keyframes(fx-fade-in) {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+@include keyframes(fx-fade-hold-60) {
+
+	0% {
+		opacity: 0.6;
+	}
+
+	100% {
+		opacity: 0.6;
+	}
+}
+@include keyframes(fx-fade-hold-80) {
+
+	0% {
+		opacity: 0.8;
+	}
+
+	100% {
+		opacity: 0.8;
+	}
+}
+@include keyframes(fx-fade-hold-30) {
+
+	0% {
+		opacity: 0.3;
+	}
+
+	100% {
+		opacity: 0.3;
+	}
+}
+@include keyframes(fx-fade-in-out-100) {
+
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+@include keyframes(fx-fade-in-out-60) {
+
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0.6;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+@include keyframes(fx-pulse) {
+
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+
+	50% {
+		-webkit-transform: scale(0.9);
+		transform: scale(0.9);
+	}
+
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+@include keyframes(fx-pulse-opacity) {
+
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+
+	50% {
+		opacity: 0.5;
+		-webkit-transform: scale(0.9);
+		transform: scale(0.9);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+@include keyframes(fx-spin) {
+
+	0% {
+		-webkit-transform: translate(-50%, -50%) rotate(0deg);
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: translate(-50%, -50%) rotate(360deg);
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+@include keyframes(fx-rotate) {
+
+	100% {
+		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+	}
+}
+@include keyframes(fx-rocker) {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	50% {
+		-webkit-transform: rotate(-10deg);
+		transform: rotate(-10deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+}
+@include keyframes(fx-rocker2) {
+	0% {
+		-webkit-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+
+	50% {
+		-webkit-transform: rotate(30deg);
+		transform: rotate(30deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(-30deg);
+		transform: rotate(-30deg);
+	}
+}
+@include keyframes(fx-bounce) {
+	0% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	50% {
+		-webkit-transform: translateY(10px);
+		transform: translateY(10px);
+	}
+
+	100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+}
+@include keyframes(fx-bounce-shadow) {
+	0% {
+		width: 80px;
+		right: 65px;
+	}
+
+	50% {
+		width: 60px;
+		right: 80px;
+	}
+
+	100% {
+		width: 80px;
+		right: 65px;
+	}
+}
+@include keyframes(fx-sparkle) {
+	0% {
+		transform: scale3d(0, 0, 1);
+	}
+
+	50% {
+		transform: scale3d(1, 0.8, 1);
+	}
+
+	100% {
+		transform: scale3d(0, 0, 1);
+	}
+}
+@include keyframes(fx-blink) {
+	0% {
+		opacity: 0;
+	}
+	49% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+}

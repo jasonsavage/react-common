@@ -1,0 +1,19 @@
+// stylelint-disable declaration-no-important
+
+.rarity-txt-0 { color: $rarity-0 !important; }
+//.rarity-bg-0 { } // base items will have a transparent background
+
+.rarity-txt-1 { color: $rarity-1 !important; }
+//.rarity-bg-1{ } // base items will have a transparent background
+
+.rarity-txt-2 { color: $rarity-2 !important; }
+.rarity-bg-2 { background: $rarity-2 !important; }
+
+.rarity-txt-3 { color: $rarity-3 !important; }
+.rarity-bg-3 { background: $rarity-3 !important; }
+
+.rarity-txt-4 { color: $rarity-4 !important; }
+.rarity-bg-4 { background: $rarity-4 !important; }
+
+.rarity-txt-5 { color: $rarity-5 !important; }
+.rarity-bg-5 { background: $rarity-5 !important; }

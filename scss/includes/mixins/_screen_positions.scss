@@ -1,0 +1,88 @@
+//
+// Screen positions to keep items inside screen safe area. To use, make sure
+// there is a parent element using screen-position-full when using any mixin below
+//
+@mixin screen-position-fill () {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+@mixin screen-position-full () {
+	position: absolute;
+	top: 4%;
+	right: 4%;
+	bottom: 4%;
+	left: 4%;
+}
+
+//
+// NOTE: make sure there is a parent element using screen-position-full when using any mixin below
+//
+// position along top of screen
+//
+@mixin screen-position-top-left () {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+@mixin screen-position-top-center () {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+@mixin screen-position-top-right () {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+//
+// position along bottom of screen
+//
+@mixin screen-position-bottom-left () {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+@mixin screen-position-bottom-center () {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+@mixin screen-position-bottom-right () {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+//
+// position along center of screen
+//
+@mixin screen-position-center-left () {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+@mixin screen-position-center () {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+@mixin screen-position-center-right () {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}

@@ -11,5 +11,17 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
+
+		&.dsp-flex-c {
+			justify-content: flex-end;
+		}
+	}
+
+	&.striped .listitem {
+		background-color: rgba($white, 0.1);
+
+		&:nth-child(even) {
+			background-color: rgba($white, 0.2);
+		}
 	}
 }

@@ -1,0 +1,35 @@
+@mixin text-glow($color) {
+	text-shadow: 0 0 10px $color, 0 0 10px $color, 0 0 10px $color, 0 0 10px $color;
+}
+@mixin active-item-glow() {
+	//border-image: url('../img/active_item_glow.png') 49 round;
+	//border-image-outset: 13px;
+	border-width: 49px;
+	border-style: solid;
+	border-color: transparent;
+}
+@mixin active-item-glow-before() {
+	border-color: transparent;
+
+	&:before {
+		@include active-item-glow();
+
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+@mixin list-item-glow-active() {
+	@include animation('fx-fade-out-in 2s linear 2s infinite');
+
+	//background: rgba($blue2, 0.5) url('../img/bg_generic_button.png') repeat;
+}
+@mixin list-item-glow-selected() {
+	border: 1px solid $blue2;
+	box-shadow: 0 0 10px 2px $blue2, inset 0 0 20px $blue2;
+	//background: rgba($blue2, 0.5) url('../img/bg_generic_button.png') repeat;
+}

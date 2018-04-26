@@ -1,0 +1,6 @@
+// stylelint-disable function-whitespace-after, unit-no-unknown
+@mixin bg-grad ($angle, $start, $startcolor, $end, $endcolor) {
+	background: $startcolor;
+	background: -webkit-linear-gradient($angle+deg, $startcolor $start, $endcolor $end);
+	background: linear-gradient((90+$angle)+deg, $startcolor $start, $endcolor $end);
+}

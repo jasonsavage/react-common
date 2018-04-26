@@ -1,0 +1,61 @@
+.preloader {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	opacity: 0.8;
+
+	.video {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		opacity: 0.6;
+	}
+
+	.preloader-circle,
+	.preloader-text {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.preloader-circle {
+		top: 50%;
+		left: 50%;
+		-webkit-animation: fx-spin 2s infinite linear;
+		animation: fx-spin 2s infinite linear;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-size: 100% 100%;
+			background-color: transparent;
+			background-repeat: no-repeat;
+		}
+
+		&:before {
+			background-image: url('../img/lb_spinner_circle_blue.png');
+			-webkit-filter: blur(8px);
+			filter: blur(8px);
+		}
+
+		&:after {
+			background-image: url('../img/lb_spinner_circle.png');
+		}
+	}
+
+	.preloader-text {
+		@include animation('fx-pulse-opacity 2s infinite linear');
+
+		background: transparent url('../img/lb_spinner_text.png') no-repeat;
+		background-size: 100% 100%;
+	}
+}

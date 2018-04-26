@@ -1,0 +1,79 @@
+/* Base Typography */
+
+/* Typography Imports */
+@font-face {
+	font-family: 'NotoEmoji';
+	src: url('../font/NotoEmoji-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	unicode-range: U+1f300-1f5ff, U+1f600-1f64f, U+1f680-1f6ff, U+2600-26ff;
+}
+@font-face {
+	font-family: 'Segment7';
+	src: url('../font/Segment7Standard.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+	unicode-range: U+0030-0039, U+003a;
+}
+@font-face {
+	font-family: 'NanumBarunGothic';
+	src: url('../font/NanumBarunGothic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Nanum Square ExtraBold';
+	src: url('../font/NanumSquareEB.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'ConthraxSb-Regular';
+	src: url('../font/conthrax-sb.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'PressStart2P';
+	src: url('../font/PressStart2P-Regular_0.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Roboto-Regular';
+	src: url('../font/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Roboto-Medium';
+	src: url('../font/Roboto-Medium.ttf') format('truetype');
+	font-weight: bold;
+}
+
+/* Typography Helper Mixins  */
+@mixin base() {
+	font-family: 'Helvetica Neue', 'NotoEmoji', 'Segoe UI Emoji', 'NanumBarunGothic', Helvetica, Arial, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+}
+@mixin segment7() {
+	font-family: 'Segment7', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin helvetica {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin conthrax {
+	font-family: 'ConthraxSb-Regular', 'NotoEmoji', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin pressstart {
+	font-family: 'PressStart2P', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin roboto-regular {
+	font-family: 'Roboto-Regular', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+@mixin roboto-medium {
+	font-family: 'Roboto-Medium', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-style: normal;
+}
