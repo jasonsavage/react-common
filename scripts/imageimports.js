@@ -32,6 +32,7 @@ function execute (args) {
 
 	// setup
 	const dest = args.o || args.output;
+	const remove = args.r || args.remove;
 	const imgs = args._;
 
 	//fix dir to be based on the same dir as script
@@ -44,7 +45,7 @@ function execute (args) {
 	let imgPaths = flatten(imgDirPaths.map((imgDir) => {
 		// check for whitelist
 		const whtPath = path.join(imgDir, 'whitelist.txt');
-		return whitelistFilter(glob.sync(imgDir + '**/*.*(jpg|png|gif)'), whtPath, true);
+		return whitelistFilter(glob.sync(imgDir + '**/*.*(jpg|png|gif)'), whtPath, remove);
 	}));
 
 	let contents = imgPaths.map(x => IMPORT_TEMPLATE
